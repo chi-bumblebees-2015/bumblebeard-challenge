@@ -45,7 +45,7 @@ In the last line of your README add a statement "Checked off by 'bob'".
 Up to this point, you have been building your AR challenges off of an existing skeleton. It's time for you to take ownership of this skeleton by writing on yourself.  The goal of this step is to get you closer to understanding all the code in a skeleton (you may not get all of it which is ok).
 
 ####Step 1 : Use Existing Skeleton As A Guide
-You will be creating a skeleton that is essentially the same as the [AR Sunlight Legislators](https://github.com/sea-lions-2014/activerecord-congress-database-1-modeling-congresspeople-challenge/tree/master/source) skeleton.  Open this and use it as a guide as you walk through the rest of these steps. **DO NOT COPY AND PASTE**
+You will be creating a skeleton that is essentially the same as the [AR Skeleton](https://github.com/sea-lions-2014/ar-skeleton) skeleton.  Open this and use it as a guide as you walk through the rest of these steps. **DO NOT COPY AND PASTE**
 
 ####Step 2: Create the Directories
 Inside your `ar-design-your-own` directory, add the following folders:
@@ -99,104 +99,28 @@ You should now be able to work with your model.  To test this, run `rake:console
 You can also test by opening your database in sqlite3 and verifying your schema and data. 
 
 
-###Release 2 : Migrations
+###Release 2 : Migrations (30 minutes)
+Create the migrations and models for all of the tables in your schema. 
 
 
 ###Release 3 : Associations
+Create the associations for your models.  Be sure to test these associations in `rake:console` and `sqlite3`.  
 
 
 ###Release 4 : Validations
+Add at least one validation to each model.  Test these validations in `rake:console` and `sqlite3`
 
-###Release 5 : Play (optional)
+###Release 5 : Seed the Database
+Create a `seeds.rb` file in the db directory. Add code to seed the database.
+
+###Release 6 : Play (optional)
 There are a lot of ways you can experiment with this challenge.  Here are a few:
 * Add Rspec tests in the `spec` directory
 * Add custom validation methods
 * Create methods to query your data in various ways.
 
 
-
-
-
-
-In the `db/migrate/20121011144238_create_students.rb` file, you should use ActiveRecord migrations to implement the `change` method. This will allow us to do all of our database schema modifications completely from within code (rather than using SQLite and SQL Designer).  Use the Railsguides [Migration Overview](http://guides.rubyonrails.org/v3.2.13/migrations.html) to get used to the syntax.
-
-#### Test Your Code
-
-Run your migrations using the following command:
-
-```bash
-$ rake db:migrate
-```
-
-Before submitting this challenge, you must test your code by using the following command:
-
-```bash
-$ rspec spec/migrate_create_table_spec.rb
-```
-
-All tests should pass.  If the output of the test is confusing, take a look under the hood.  How does the spec file test for expectations?  This is very similar to ruby, see if you can figure it out.
-
-###Release 1 : Your First Object-Relational Model
-
-Create a class called `Student` (in the `app/models/student.rb` file) that meets the following requirements:
-
-#### User Stories
-
-1. Given a `Student` model object, I should be able to easily retrieve her full name via a `name` method.
-2. Given a `Student` model object, I should be able to easily know her age (in years) via an `age` method.
-
-Don't overcomplicate this!  From this user story, we can infer that `student.name` would likely be the syntax to access the `name` method. 
-What can we infer is needed in the `Student` Class?
-
-#### Test Your Code
-
-Before submitting this challenge, you must test your code by using the following command:
-
-```bash
-$ rspec spec/student_spec.rb -e "#name and #age"
-```
-
-All tests should pass.
-
-###Release 2 : Validation Magic
-
-Add validations to the `Student` model so that a student cannot be saved unless the following requirements are met:
-
-1. Email addresses must contain at least one `@` character and one `.` character, with at least one character before the `@`, one character between the `@` and first `.`, and at least two characters after the final `.`.
-2. Email addresses must be unique across all students.
-3. Students must be at least `5` years old.
-
-A great resource for validations is the Railsguides [Validation Overview](http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html), don't forget to use google too!
-
-#### Test Your Code
-
-Before submitting this challenge, you must test your code by using the following command:
-
-```bash
-$ rspec spec/student_spec.rb -e "validations"
-```
-
-All tests should pass.
-
-
-###Release 2 : More Advanced Validations
-
-Add another validation to the `Student` model so that a student cannot be saved unless the following requirement is met:
-
-Phone numbers must contain at least 10 digits, _excluding_ non-numeric characters.
-
-#### Test Your Code
-
-Before submitting this challenge, you must test your code by using the following command:
-
-```bash
-$ rspec spec/student_spec.rb -e "advanced validations"
-```
-
-All tests should pass. 
-
-
-##Optimize Your Learning 
+<!-- ##Optimize Your Learning  -->
 
 ##Resources
 
