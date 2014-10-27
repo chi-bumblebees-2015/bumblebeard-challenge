@@ -45,7 +45,7 @@ In the last line of your README add a statement "Checked off by 'bob'".
 Up to this point, you have been building your AR challenges off of an existing skeleton. It's time for you to take ownership of this skeleton by writing on yourself.  The goal of this step is to get you closer to understanding all the code in a skeleton (you may not get all of it which is ok).
 
 ####Step 1 : Use Existing Skeleton As A Guide
-You will be creating a skeleton that is essentially the same as the [AR Skeleton](https://github.com/sea-lions-2014/ar-skeleton) skeleton.  Open this and use it as a guide as you walk through the rest of these steps. **DO NOT COPY AND PASTE**
+You will be creating a skeleton that is essentially the same as the [AR Skeleton](../../../ar-skeleton) skeleton.  Open this and use it as a guide as you walk through the rest of these steps. **DO NOT COPY AND PASTE**
 
 ####Step 2: Create the Directories
 Inside your `ar-design-your-own` directory, add the following folders:
