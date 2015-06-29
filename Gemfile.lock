@@ -5,7 +5,7 @@ GEM
       activesupport (= 3.2.12)
       builder (~> 3.0.0)
     activerecord (3.2.12)
-      activemodel (=3.2.12)
+      activemodel (= 3.2.12)
       activesupport (= 3.2.12)
       arel (~> 3.0.2)
       tzinfo (~> 0.3.29)

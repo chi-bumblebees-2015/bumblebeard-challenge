@@ -25,6 +25,30 @@ task "db:migrate" do
 end
 
 namespace :generate do
+  desc "Create an empty model in the app/models, e.g., rake generate:model NAME=User"
+  task :model do
+    unless ENV.has_key?('NAME')
+      raise "Must specify model name, e.g., rake generate:model NAME=User"
+    end
+
+    model_name     = ENV['NAME'].camelize
+    model_filename = ENV['NAME'].underscore + '.rb'
+    model_path     = APP_ROOT.join('app', 'models', model_filename)
+
+    if File.exist?(model_path)
+      raise "ERROR: Model file '#{model_path}' already exists"
+    end
+
+    puts "Creating #{model_path}"
+    File.open(model_path, 'w+') do |f|
+      f.write(<<-EOF.strip_heredoc)
+        class #{model_name} < ActiveRecord::Base
+          # Remember to create a migration!
+        end
+      EOF
+    end
+  end
+
   desc "Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks"
   task :migration do
     unless ENV.has_key?('NAME')
