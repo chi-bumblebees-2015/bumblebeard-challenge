@@ -45,7 +45,7 @@ Schema XML:
     <type label="SET" length="1" sql="SET" quote=""/>
     <type label="Bit" length="0" sql="bit" quote=""/>
   </group>
-</datatypes><table x="187" y="53" name="users">
+</datatypes><table x="204" y="54" name="users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -62,7 +62,7 @@ Schema XML:
 <part>id</part>
 </key>
 </table>
-<table x="475" y="160" name="groups">
+<table x="588" y="529" name="groups">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -73,22 +73,26 @@ Schema XML:
 <part>id</part>
 </key>
 </table>
-<table x="634" y="94" name="messages">
+<table x="761" y="70" name="messages">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="encrypted_text" null="1" autoincrement="0">
+<row name="text" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
 <row name="group_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="groups" row="id" />
 </row>
+<row name="sender_id" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="users" row="id" />
+</row>
 <key type="PRIMARY" name="">
 <part>id</part>
 </key>
 </table>
-<table x="24" y="52" name="contacting">
+<table x="45" y="34" name="contacting">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -104,7 +108,7 @@ Schema XML:
 <part>id</part>
 </key>
 </table>
-<table x="321" y="144" name="grouping">
+<table x="292" y="395" name="groups_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -120,19 +124,15 @@ Schema XML:
 <part>id</part>
 </key>
 </table>
-<table x="473" y="28" name="messaging">
+<table x="484" y="4" name="messages_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
-<row name="sender_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default><relation table="users" row="id" />
-</row>
 <row name="message_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="messages" row="id" />
 </row>
-<row name="recipient_id" null="1" autoincrement="0">
+<row name="user_id" null="1" autoincrement="0">
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="users" row="id" />
 </row>
@@ -141,3 +141,4 @@ Schema XML:
 </key>
 </table>
 </sql>
+
