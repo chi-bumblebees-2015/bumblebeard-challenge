@@ -1,0 +1,9 @@
+1. create an account with only username and password as identifiers
+2. associate anonymously with other users by username
+3. group anonymously with other users
+4. send messages to other users
+5. encrypt said messages
+6. send messages to the group
+7. encrypt said messages
+8. create dummy users and groups to add numbers
+9. generate dummy messages to mask communications
