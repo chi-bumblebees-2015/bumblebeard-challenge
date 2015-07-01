@@ -1,0 +1,41 @@
+<div class="container">
+  <h1>Welcome to BumbleBuzz!</h1>
+  <p>The exclusive messaging app of the 2015 Chicago Bumblebees</p>
+</div>
+
+<div class="login">
+  <% if @repeat %>
+    <p class="error_text">We're sorry, but that username/password combination is not authorized on this service.</p>
+    <p class="error_text">Please try again.</p>
+  <% end %>
+  <form action="/login" method="post">
+    <label>Username:</label><br>
+    <input type="text" name="username" autocomplete="off"><br><br>
+    <label>Password:</label><br>
+    <input type="text" name="password" autocomplete="off"><br><br>
+    <input type="submit" value="Authenticate"<br>
+  </form>
+</div>
+
+<!-- <footer>
+  <p>Disclaimer: This site exists for purely for educational purposes. It is not secure <strong>DO NOT</strong> use a username or password or submit a message that you would not feel comfortable sharing publicly.</p>
+</footer> -->
+
+  <!-- <table>
+    <tr>
+      <th>File Description</th>
+      <th>File Location</th>
+    </tr>
+    <tr>
+      <td>This view file</td>
+      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+    <tr>
+      <td>The layout file</td>
+      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+    <tr>
+      <td>The current controller</td>
+      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
+    </tr>
+  </table> -->

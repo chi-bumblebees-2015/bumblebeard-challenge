@@ -1,6 +1,23 @@
-source :rubygems
+source 'https://rubygems.org'
 
+# PostgreSQL driver
+gem 'pg'
+
+# Sinatra driver
+gem 'sinatra'
+gem 'sinatra-contrib'
+
+# Use thin for our web server
+gem 'thin'
+
+gem 'activesupport'
 gem 'activerecord'
-gem 'sqlite3'
-gem 'faker'
-gem 'rspec'
+
+gem 'rake'
+
+gem 'shotgun'
+
+group :test do
+  gem 'faker'
+  gem 'rspec'
+end
