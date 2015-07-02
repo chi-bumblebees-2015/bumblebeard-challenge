@@ -1,1 +1,0 @@
-# buzzbeard-challenge
