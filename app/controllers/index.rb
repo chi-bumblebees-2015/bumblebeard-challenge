@@ -10,7 +10,7 @@ post '/login' do
   if @user == nil || params["password"] != @user.password
     redirect to('/?repeat=true')
   else
-    redirect to('/welcome')
+    redirect to("/welcome/#{@user.username}")
   end
 end
 
