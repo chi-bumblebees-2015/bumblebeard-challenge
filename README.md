@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Active Record Design Your Own
  
 ##Learning Competencies 
@@ -125,3 +126,6 @@ There are a lot of ways you can experiment with this challenge.  Here are a few:
 ##Resources
 
 * [Validation Overview](http://guides.rubyonrails.org/v3.2.13/active_record_validations_callbacks.html)
+=======
+# buzzbeard-challenge
+>>>>>>> 0d5552272bdc4e18d5e2045540eabd924e5031d5
