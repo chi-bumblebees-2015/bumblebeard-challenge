@@ -24,4 +24,4 @@ Clearly this project needs a lot of work. It needs at least the following:
 Feel free to tackle any/all of these issues. If you create your own branch, you can push it to this repository, and submit a pull request into my branch. Or, if you prefer, contact me to discuss any aspects or components that interest you. I can be reached via email, slack, or phone (which is listed on slack).
 
 
-## Thanks in advance for any and all help!
+Thanks in advance for any and all work you can contribute!
