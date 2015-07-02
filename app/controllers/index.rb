@@ -1,4 +1,5 @@
 require 'sinatra'
+enable :sessions
 
 get '/' do
   @repeat = params[:repeat]
@@ -10,10 +11,17 @@ post '/login' do
   if @user == nil || params["password"] != @user.password
     redirect to('/?repeat=true')
   else
-    redirect to("/welcome/#{@user.username}")
+    session[:user] = @user
+    redirect to("/welcome")
   end
 end
 
-get '/invalid_login' do
-  erb :invalid_login
+get '/welcome' do
+  if session[:user]
+    @user = session[:user]
+    erb :welcome
+  else
+    erb :temp
+  end
 end
+
