@@ -14,3 +14,9 @@
 <strong><%= message.created_at %> - <%= message.sender.username %></strong>: <%= message.text%>
 <p>
 <%end%>
+<p>
+<em>Send your own message!</em>
+<form action="/form" method="post">
+  <input type="text" name="message">
+  <input type="submit">
+</form>

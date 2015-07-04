@@ -25,3 +25,13 @@ get '/welcome' do
     erb :temp
   end
 end
+
+post '/form' do
+  if session[:user]
+    @user = session[:user]
+    Message.create!(text: params[:message], sender: @user, recipients: User.all )
+    redirect to("/welcome")
+  else
+    erb :temp
+  end
+end
