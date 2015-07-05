@@ -1,22 +1,21 @@
-<p>This page should contain the primary interface of the app. It should have:<p>
-
-<p>
-  <ul>
-    <li>A section/menu to display the user's groups and contacts.</li>
-    <li>A section to display the current conversation.</li>
-    <li>A form to post a new message.</li>
-    <li>A button or other means of logging out.</li>
-  </ul>
-</p>
-
-<p>Feel free to work on designing any of these and/or to contribute additional ideas. The above is merely a starting point.</p>
+<h3>Here are your messages:</h3>
 <% @messages.each do |message| %>
 <strong><%= message.created_at %> - <%= message.sender.username %></strong>: <%= message.text%>
 <p>
 <%end%>
 <p>
-<em>Send your own message!</em>
+<em>Send a personal message here:</em>
 <form action="/form" method="post">
+	<select>
+		<% @user.contacts.each do |contact| %>
+			<option value=<%= contact.username %> ><%= contact.username %></option>
+			<% end %>
+	</select>
   <input type="text" name="message">
-  <input type="submit">
+  <input type="submit" value="Send">
+</form>
+<br><br>
+
+<form action="logout" method="post">
+	<input type="submit" value="Logout">
 </form>

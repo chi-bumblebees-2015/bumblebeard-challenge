@@ -19,10 +19,11 @@ end
 get '/welcome' do
   if session[:user]
     @user = session[:user]
-    @messages = Message.order(created_at: :asc)
+    # @messages = Message.order(created_at: :asc)
+    @messages = @user.received_messages
     erb :welcome
   else
-    erb :temp
+    redirect to('/')
   end
 end
 
@@ -34,4 +35,9 @@ post '/form' do
   else
     erb :temp
   end
+end
+
+post '/logout' do
+  session[:user] = nil
+  erb :logout
 end
