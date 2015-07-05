@@ -10,3 +10,13 @@
 </p>
 
 <p>Feel free to work on designing any of these and/or to contribute additional ideas. The above is merely a starting point.</p>
+<% @messages.each do |message| %>
+<strong><%= message.created_at %> - <%= message.sender.username %></strong>: <%= message.text%>
+<p>
+<%end%>
+<p>
+<em>Send your own message!</em>
+<form action="/form" method="post">
+  <input type="text" name="message">
+  <input type="submit">
+</form>
