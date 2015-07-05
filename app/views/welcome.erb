@@ -1,12 +1,13 @@
 <div class="content">
 	<h3>Here are your messages:</h3>
+
 	<% @messages.each do |message| %>
 		<p><strong><%= message.sender.username %></strong>: <%= message.text%><br>
 		<small><%= message.created_at.strftime "%m-%d-%Y %H:%M UTC" %></small>
 		</p>
 	<%end%>
 
-	<div class="messaging">
+	<div class="section">
 		<div class="left">
 			<p><em>Send a personal message here:</em></p>
 			<form action="/personal" method="post">
@@ -17,7 +18,7 @@
 				</select>
 
 			  <input type="text" name="message">
-			  
+
 			  <input type="submit" value="Send">
 			</form>
 		</div>
@@ -32,14 +33,52 @@
 				</select>
 
 				<input type="text" name="message">
-				
+
 				<input type="submit" value="Send">
 			</form>
 		</div>
 	</div>
+	<br><br>
+
+	<h3>Modify your contacts here:</h3>
+
+	<form action="/add_contact" method="post">
+		<label>Add a contact:</label>
+		<input type="text" name="contact_username">
+		<input type="submit" value="Add">
+	</form>
+	<br>
+
+	<form action="/delete_contact" method="post">
+		<label>Delete a contact:</label>
+		<select name="contact_user_id">
+			<% @user.contacts.each do |contact| %>
+				<option value=<%= contact.id %> ><%= contact.username %></option>
+			<% end %>
+		</select>
+		<input type="submit" value="Delete">
+	</form>
+	<br><br>
+
+	<!-- <h3>Modify your groups here:</h3>
+
+	<form action="/mod_groups" method="post">
+		<label>Create a group:</label>
+		<input type="text" name="new_group_name">
+		<input type="submit" value="Create">
+		<br><br>
+
+		<label>Leave a group:</label>
+		<select name="leave_group_name">
+			<% @user.groups.each do |group| %>
+				<option value=<%= group.id %> ><%= group.name %></option>
+			<% end %>
+		</select>
+		<input type="submit" value="Leave">
+	</form> -->
 
 	<footer>
-		<form action="logout" method="post">
+		<form action="logout" method="get">
 			<input type="submit" value="Logout">
 		</form>
 	</footer>

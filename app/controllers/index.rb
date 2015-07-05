@@ -3,6 +3,8 @@ enable :sessions
 
 get '/' do
   @repeat = params[:repeat]
+  @dup_username = params[:duplicate]
+  @blank = params[:blank]
   erb :index
 end
 
@@ -16,11 +18,24 @@ post '/login' do
   end
 end
 
+post '/signup' do
+  username = params[:username]
+  password = params[:password]
+  if username == '' || password == ''
+    redirect to("/?blank=true")
+  elsif User.find_by(username: username) == nil
+    session[:user] = User.create!(username: username, password: password)
+    redirect to('/welcome')
+  else
+    redirect to("/?duplicate=#{username}")
+  end
+end
+
 get '/welcome' do
   if session[:user]
     @user = session[:user]
     # @messages = Message.order(created_at: :asc)
-    @messages = @user.messages_for_display 
+    @messages = @user.messages_for_display
     erb :welcome
   else
     redirect to('/')
@@ -48,7 +63,38 @@ post '/group' do
   end
 end
 
-post '/logout' do
+post '/add_contact' do
+  if session[:user]
+    @user = session[:user]
+    @contact = User.find_by(username: params[:contact_username])
+    if @contact && !@user.contacts.index(@contact)
+      @user.contacts << @contact
+      @user.contacts.uniq!
+      redirect to('/welcome')
+    else
+      redirect to("/welcome")
+    end
+  else
+    redirect to('/')
+  end
+end
+
+post '/delete_contact' do
+  if session[:user]
+    @user = session[:user]
+    @contact = User.find_by(id: params[:contact_user_id])
+    if @contact && @user.contacts.index(@contact)
+      @user.contacts.delete(@contact)
+      redirect to("/welcome")
+    else
+      redirect to("/welcome")
+    end
+  else
+    redirect to('/')
+  end
+end
+
+get '/logout' do
   session[:user] = nil
   erb :logout
 end
