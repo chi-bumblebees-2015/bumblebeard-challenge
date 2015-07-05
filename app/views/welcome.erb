@@ -1,44 +1,46 @@
-<h3>Here are your messages:</h3>
-<% @messages.each do |message| %>
-	<p><strong><%= message.sender.username %></strong>: <%= message.text%><br>
-	<small><%= message.created_at.strftime "%m-%d-%Y %H:%M UTC" %></small>
-	</p>
-<%end%>
+<div class="content">
+	<h3>Here are your messages:</h3>
+	<% @messages.each do |message| %>
+		<p><strong><%= message.sender.username %></strong>: <%= message.text%><br>
+		<small><%= message.created_at.strftime "%m-%d-%Y %H:%M UTC" %></small>
+		</p>
+	<%end%>
 
-<div name="messaging">
-	<div class="left">
-		<p><em>Send a personal message here:</em></p>
-		<form action="/personal" method="post">
-			<select>
-				<% @user.contacts.each do |contact| %>
-					<option value=<%= contact.username %> ><%= contact.username %></option>
-				<% end %>
-			</select>
+	<div class="messaging">
+		<div class="left">
+			<p><em>Send a personal message here:</em></p>
+			<form action="/personal" method="post">
+				<select name="recipient">
+					<% @user.contacts.each do |contact| %>
+						<option value=<%= contact.username %> ><%= contact.username %></option>
+					<% end %>
+				</select>
 
-		  <input type="text" name="message">
-		  
-		  <input type="submit" value="Send">
-		</form>
+			  <input type="text" name="message">
+			  
+			  <input type="submit" value="Send">
+			</form>
+		</div>
+
+		<div class="right">
+			<p><em>Send a group message here:</em></p>
+			<form action="/group" method="post">
+				<select name="group">
+					<% @user.groups.each do |group| %>
+						<option value=<%= group.name %> ><%= group.name %></option>
+					<% end %>
+				</select>
+
+				<input type="text" name="message">
+				
+				<input type="submit" value="Send">
+			</form>
+		</div>
 	</div>
 
-	<div class="right">
-		<p><em>Send a group message here:</em></p>
-		<form action="/group" method="post">
-			<select>
-				<% @user.groups.each do |group| %>
-					<option value=<%= group.name %> ><%= group.name %></option>
-				<% end %>
-			</select>
-
-			<input type="text" name="message">
-			
-			<input type="submit" value="Send">
+	<footer>
+		<form action="logout" method="post">
+			<input type="submit" value="Logout">
 		</form>
-	</div>
-</div>
-
-<div>
-	<form action="logout" method="post">
-		<input type="submit" value="Logout">
-	</form>
-</div>
+	</footer>
+</content>

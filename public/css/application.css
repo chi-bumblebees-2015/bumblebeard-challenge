@@ -18,3 +18,22 @@ th {
 .error_text {
   color: red;
 }
+
+.messaging {
+  width: 800px;
+  margin: 20px auto;
+  overflow: auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.content {
+  width: 1100px;
+  margin: 0 auto;
+}

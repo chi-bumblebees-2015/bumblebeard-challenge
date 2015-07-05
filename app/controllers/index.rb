@@ -30,7 +30,7 @@ end
 post '/personal' do
   if session[:user]
     @user = session[:user]
-    Message.create!(text: params[:message], sender: @user, recipients: User.all )
+    Message.create!(text: params[:message], sender: @user, recipients: [User.find_by(username: params[:recipient])])
     redirect to("/welcome")
   else
     erb :temp
