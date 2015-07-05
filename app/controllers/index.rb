@@ -19,9 +19,19 @@ end
 get '/welcome' do
   if session[:user]
     @user = session[:user]
+    @messages = Message.order(created_at: :asc)
     erb :welcome
   else
     erb :temp
   end
 end
 
+post '/form' do
+  if session[:user]
+    @user = session[:user]
+    Message.create!(text: params[:message], sender: @user, recipients: User.all )
+    redirect to("/welcome")
+  else
+    erb :temp
+  end
+end
