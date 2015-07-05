@@ -12,4 +12,8 @@ class User < ActiveRecord::Base
       {username: contact.username, public_key: contact.public_key}
     end
   end
+
+  def messages_for_display
+    (self.received_messages + self.sent_messages).uniq.sort { |a, b| a.created_at <=> b.created_at }
+  end
 end
