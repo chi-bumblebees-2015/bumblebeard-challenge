@@ -27,7 +27,7 @@ get '/welcome' do
   end
 end
 
-post '/form' do
+post '/personal' do
   if session[:user]
     @user = session[:user]
     Message.create!(text: params[:message], sender: @user, recipients: User.all )
