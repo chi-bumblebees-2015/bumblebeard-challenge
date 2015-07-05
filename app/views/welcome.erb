@@ -12,7 +12,7 @@
 			<form action="/personal" method="post">
 				<select name="recipient">
 					<% @user.contacts.each do |contact| %>
-						<option value=<%= contact.username %> ><%= contact.username %></option>
+						<option value=<%= contact.id %> ><%= contact.username %></option>
 					<% end %>
 				</select>
 
@@ -27,7 +27,7 @@
 			<form action="/group" method="post">
 				<select name="group">
 					<% @user.groups.each do |group| %>
-						<option value=<%= group.name %> ><%= group.name %></option>
+						<option value=<%= group.id %> ><%= group.name %></option>
 					<% end %>
 				</select>
 

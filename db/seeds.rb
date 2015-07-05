@@ -11,3 +11,5 @@ message2 = Message.create!(text: Faker::Hacker.say_something_smart, sender: curl
 # message = Message.create!(text: 'Hello, World!', sender: user, recipients: [user2])
 # user.contacts << user2
 message3 = Message.create!(text: Faker::Hacker.say_something_smart, sender: moe, recipients: [curly])
+
+Group.create!(name: "All Users", users: [larry, curly, moe])
